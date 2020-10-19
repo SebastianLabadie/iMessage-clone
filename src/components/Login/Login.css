@@ -1,0 +1,36 @@
+.login{
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+
+.login>button{
+    width: 300px;
+    background-color: #3ea4fb;
+    color: gainsboro;
+    font-weight: 600;
+}
+
+.login>button:hover{
+    background-color: gainsboro;
+    color: #3ea4fb;
+}
+
+
+
+/* LOGIN LOGO */
+
+.login__logo{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.login__logo>img{
+    object-fit: contain;
+    height: 150px;
+}
