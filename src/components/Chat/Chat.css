@@ -74,6 +74,7 @@
     display: none;
 }
 
-.chat__mic{
-
+.chat__scrollBottom{
+    overflow: auto;
+    flex: auto;
 }

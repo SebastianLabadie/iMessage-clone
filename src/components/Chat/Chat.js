@@ -9,6 +9,7 @@ import Message from "./Message/Message";
 import firebase from "firebase";
 import { selectUser } from "../../features/userSlice";
 import FlipMove from 'react-flip-move'
+import ScrollToBottom from 'react-scroll-to-bottom'
 
 function Chat() {
   const user = useSelector(selectUser);
@@ -22,7 +23,7 @@ function Chat() {
       db.collection("chats")
         .doc(chatID)
         .collection("messages")
-        .orderBy("timestamp", "desc")
+        .orderBy("timestamp", "asc")
         .onSnapshot((snapshot) =>
           setMessages(
             snapshot.docs.map((message) => ({
@@ -56,6 +57,9 @@ function Chat() {
         <strong>Details</strong>
       </div>
 
+      <ScrollToBottom className="chat__scrollBottom">
+
+
       <div className="chat__messages">
         <FlipMove>
           {messages?.map(({ id, data }) => (
@@ -63,6 +67,7 @@ function Chat() {
           ))}
         </FlipMove>
       </div>
+      </ScrollToBottom>
 
       <div className="chat__input">
         <form>
