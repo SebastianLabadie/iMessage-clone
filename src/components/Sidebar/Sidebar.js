@@ -18,7 +18,21 @@ function Sidebar() {
           <RateReviewOutlinedIcon />
         </IconButton>
       </div>
-      <div className="sidebar__chat">
+      <div className="sidebar__chats">
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
+          <SidebarChat />
           <SidebarChat />
       </div>
     </div>
