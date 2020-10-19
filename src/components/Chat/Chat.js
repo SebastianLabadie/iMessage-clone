@@ -6,12 +6,12 @@ import { selectChatID, selectChatName } from "../../features/chatSlice";
 import { db } from "../../firebase";
 import "./Chat.css";
 import Message from "./Message/Message";
-import firebase from "firebase"
+import firebase from "firebase";
 import { selectUser } from "../../features/userSlice";
-
+import FlipMove from 'react-flip-move'
 
 function Chat() {
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const chatName = useSelector(selectChatName);
@@ -36,11 +36,14 @@ function Chat() {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    db.collection('chats').doc(chatID).collection('messages').add({
-      timestamp:firebase.firestore.FieldValue.serverTimestamp(),
-      message,
-      ...user
-    })
+    db.collection("chats")
+      .doc(chatID)
+      .collection("messages")
+      .add({
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        message,
+        ...user,
+      });
     setMessage("");
   };
 
@@ -54,7 +57,11 @@ function Chat() {
       </div>
 
       <div className="chat__messages">
-        {messages?.map(({id,data})=><Message key={id} content={data} />)}
+        <FlipMove>
+          {messages?.map(({ id, data }) => (
+            <Message key={id} content={data} />
+          ))}
+        </FlipMove>
       </div>
 
       <div className="chat__input">
